@@ -16,39 +16,110 @@ class MyApp extends StatelessWidget {
       ),
       home: const SafeArea(
         child: Scaffold(
-          body: Home(),
+          body: ListViewPractice(),
         ),
       ),
     );
   }
 }
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class ListViewPractice extends StatelessWidget {
+  const ListViewPractice({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Row(
+        children: [
+          Container(
+            width: 100,
+            height: 200,
+            color: Colors.purple,
+          ),
+          Expanded(
+            child: ListView(
+              children: const [
+                Text("ONE", style: TextStyle(fontSize: 28)),
+                SizedBox(height: 10),
+                Text("TWO", style: TextStyle(fontSize: 28)),
+                SizedBox(height: 10),
+                Text("THREE", style: TextStyle(fontSize: 28)),
+                SizedBox(height: 10),
+                Text("FOUR", style: TextStyle(fontSize: 28)),
+                SizedBox(height: 10),
+                Text("FIVE", style: TextStyle(fontSize: 28)),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ExpandedPractice extends StatelessWidget {
+  const ExpandedPractice({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         color: Colors.blue,
-        child: Column(
+        child: Row(
           children: [
             const Text("ONE", style: TextStyle(fontSize: 18)),
-            const Text("TWO", style: TextStyle(fontSize: 36)),
-            const Text("THREE", style: TextStyle(fontSize: 48)),
+            Container(
+              color: Colors.green,
+              child: const Text("THREE", style: TextStyle(fontSize: 48)),
+            ),
             Expanded(
-              flex: 1,
               child: Container(
                 color: Colors.red,
-                child: ListView(
-                  children: const [
-                    Center(child: Text("FOUR", style: TextStyle(fontSize: 48))),
+                child: Column(
+                  children: [
+                    Container(
+                      color: Colors.purple,
+                      child: const Text("FOUR", style: TextStyle(fontSize: 48)),
+                    ),
+                    Container(
+                      color: Colors.yellow,
+                      child: Row(
+                        children: const [
+                          Text("SIX", style: TextStyle(fontSize: 48)),
+                        ],
+                      ),
+                    ),
+                    const Text("FIVE", style: TextStyle(fontSize: 48)),
                   ],
                 ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ColumnPractice extends StatelessWidget {
+  const ColumnPractice({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.blue,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Text("ONE", style: TextStyle(fontSize: 18)),
+          const Text("TWO", style: TextStyle(fontSize: 18)),
+          Container(
+            color: Colors.green,
+            child: const Text("THREE", style: TextStyle(fontSize: 36)),
+          ),
+        ],
       ),
     );
   }
